@@ -1,0 +1,88 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Control de Horas de Trabajo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>📋 Control de Horas de Trabajo</h1>
+    
+    <section id="daily-log">
+      <h2>Registro Diario</h2>
+      <table id="daily-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Hora de Entrada</th>
+            <th>Hora de Salida</th>
+            <th>Horas Totales</th>
+            <th>Cumplimiento</th>
+          </tr>
+        </thead>
+        <tbody id="daily-table-body">
+          <!-- Registros diarios se insertarán dinámicamente -->
+        </tbody>
+      </table>
+      <button onclick="abrirModalRegistroDiario()">+ Agregar Registro</button>
+    </section>
+
+    <section id="weekly-log">
+      <h2>Registro Semanal</h2>
+      <table id="weekly-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+            <th>Domingo</th>
+            <th>Total Horas</th>
+            <th>Cumplimiento</th>
+          </tr>
+        </thead>
+        <tbody id="weekly-table-body">
+          <!-- Registros semanales se insertarán dinámicamente -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="notifications">
+      <h2>🚨 Notificaciones de Incumplimiento</h2>
+      <div id="non-compliance-list">
+        <!-- Lista de personas que no cumplieron se insertará dinámicamente -->
+      </div>
+    </section>
+
+    <section id="dashboard">
+      <h2>📊 Panel de Control</h2>
+      <div class="charts">
+        <canvas id="weekly-hours-chart"></canvas>
+        <canvas id="compliance-chart"></canvas>
+      </div>
+    </section>
+
+    <!-- Modal para registro diario -->
+    <div id="daily-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModalRegistroDiario()">&times;</span>
+        <h2>Registrar Hora Diaria</h2>
+        <form id="daily-form">
+          <input type="text" id="nombre" placeholder="Nombre" required>
+          <input type="date" id="fecha" required>
+          <input type="time" id="hora-entrada" required>
+          <input type="time" id="hora-salida" required>
+          <button type="submit">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
